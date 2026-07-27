@@ -5,7 +5,14 @@ Mercado Central 24h.
 Ejecutar con:
     streamlit run src/app.py
 """
+import os
+import sys
+
 import streamlit as st
+
+_RAIZ_PROYECTO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _RAIZ_PROYECTO not in sys.path:
+    sys.path.insert(0, _RAIZ_PROYECTO)
 
 from src.agent import preguntar
 

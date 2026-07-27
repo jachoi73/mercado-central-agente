@@ -8,6 +8,8 @@ composicion de cadenas en LangChain.
 
 Requiere haber ejecutado antes: python -m src.ingest
 """
+import os
+
 from langchain.tools import tool
 from langchain_community.vectorstores import FAISS
 from langchain_core.output_parsers import StrOutputParser
@@ -16,8 +18,17 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 
 from src import config
+from src.ingest import construir_vectorstore
 
 _embeddings = GoogleGenerativeAIEmbeddings(model=config.EMBEDDING_MODEL)
+
+if not os.path.exists(os.path.join(config.VECTORSTORE_DIR, "index.faiss")):
+    # El vectorstore no esta versionado en el repo (se regenera a partir de
+    # los PDFs de data/politicas/); si no existe aun, lo construimos aqui
+    # para que la app funcione tambien en un deploy limpio (ej. Streamlit
+    # Community Cloud) sin pasos manuales adicionales.
+    construir_vectorstore()
+
 _vectorstore = FAISS.load_local(
     config.VECTORSTORE_DIR, _embeddings, allow_dangerous_deserialization=True
 )
