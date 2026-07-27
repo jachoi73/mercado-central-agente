@@ -74,7 +74,7 @@ mercado-central-agente/
 │   └── app.py                              # interfaz Streamlit
 ├── notebooks/
 │   └── prototipo.ipynb                     # prototipado en Google Colab
-└── vectorstore/                            # índice FAISS generado (no versionado)
+└── vectorstore/                            # índice FAISS (versionado para que el deploy no dependa de la cuota de embeddings)
 ```
 
 ## ▶️ Instrucciones para ejecutar el proyecto
@@ -101,7 +101,9 @@ cp .env.example .env
 GOOGLE_API_KEY=tu_api_key_aqui
 ```
 
-### 3. Construir el índice de políticas (una sola vez)
+### 3. Construir el índice de políticas (opcional)
+
+El repositorio ya incluye un índice `vectorstore/` pre-generado, listo para usar. Solo hace falta este paso si modificás los documentos en `data/politicas/`.
 
 ```bash
 python -m src.ingest
