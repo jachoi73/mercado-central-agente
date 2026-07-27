@@ -52,7 +52,7 @@ El agente está construido con **LangGraph** y decide dinámicamente qué herram
 | Lectura de PDFs | PyPDF |
 | Lectura de inventario | openpyxl |
 | Interfaz | Streamlit |
-| Despliegue | Oracle Cloud Infrastructure (OCI Compute) |
+| Despliegue | Streamlit Community Cloud |
 
 ## 📁 Estructura del proyecto
 
@@ -155,10 +155,9 @@ streamlit run src/app.py
 >
 > **Respuesta del agente:** El proveedor del Frijol Negro 1kg (Goya) es Distribuidora Granos S.A. y su precio de venta es $8.49.
 
-## ☁️ Evidencia del despliegue en OCI
+## ☁️ Evidencia del despliegue
 
-- **URL pública de la aplicación:** *[COMPLETAR — enlace a la app corriendo en OCI]*
-- **Captura de pantalla:** *[COMPLETAR — agrega una imagen en `docs/` y enlázala aquí, ej. `![Deploy en OCI](docs/deploy-oci.png)`]*
+- **URL pública de la aplicación:** [mercado-central-agente-qcdao6m3kwyxnf43uzkbdk.streamlit.app](https://mercado-central-agente-qcdao6m3kwyxnf43uzkbdk.streamlit.app/)
 
 ## 👤 Autor
 
